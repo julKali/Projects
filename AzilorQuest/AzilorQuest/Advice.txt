@@ -1,0 +1,3 @@
+﻿name all classes that are forms with Form at the end, f.e. WelcomeForm (like you did with BattleForm, be consistent!)
+
+name items on forms [Function][ItemType] using Pascal Casing, f.e. LevelUpButton 

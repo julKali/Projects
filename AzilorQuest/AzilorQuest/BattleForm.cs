@@ -16,8 +16,8 @@ namespace AzilorQuest
     public partial class BattleForm : Form
     {
         //GLOBALS
-        private string monster;
-        private Monster creature;
+        private string monster; //naming, these should be _monster etc.
+        private Monster creature; 
         private Azilor hero;
         private Random rand;
         private List<MapTile> area;
@@ -488,7 +488,7 @@ namespace AzilorQuest
             switch (item)
             {
                 case "PotionSmall":
-                    Item potion = new Item();
+                    Item potion = new Item(); 
                     potion.Name = "Potion (Small)";
                     potion.Type = "Consumable";
                     potion.Desc = "A small potion that will heal 30 hit points.";
@@ -586,7 +586,8 @@ namespace AzilorQuest
         }
 
         ////CHARACTER PRINT DELAY METHOD
-        async public void delayPrintLine(TextBox console, string output)
+        public async Task delayPrintLine(TextBox console, string output) //best practise: use Task instead of void as return type, see https://stackoverflow.com/questions/12144077/async-await-when-to-return-a-task-vs-void
+            //also: naming! Pascal case!
         {
             await semaphoreSlim.WaitAsync();
             await eventSemaphore.WaitAsync();
@@ -596,7 +597,7 @@ namespace AzilorQuest
                 char[] charArray = s.ToCharArray();
                 s = "";
 
-                for (int i = 0; i < charArray.Length; i++)
+                for (int i = 0; i < charArray.Length; i++) //readability: use foreach instead of for
                 {
                     console.AppendText(charArray[i].ToString());
                     await Task.Delay(20);
@@ -610,7 +611,7 @@ namespace AzilorQuest
             }
         }
 
-        async public void delayPrintLine(TextBox console, string output, bool lastLine)
+        public async Task delayPrintLine(TextBox console, string output, bool lastLine) //naming
         {
             await semaphoreSlim.WaitAsync();
             try
@@ -619,7 +620,7 @@ namespace AzilorQuest
                 char[] charArray = s.ToCharArray();
                 s = "";
 
-                for (int i = 0; i < charArray.Length; i++)
+                for (int i = 0; i < charArray.Length; i++) //readability: use foreach instead of for
                 {
                     console.AppendText(charArray[i].ToString());
                     await Task.Delay(20);
@@ -633,7 +634,7 @@ namespace AzilorQuest
             }
         }
 
-        private void eventTimer_Tick(object sender, EventArgs e)
+        private void eventTimer_Tick(object sender, EventArgs e) //naming
         {
             activeAction = false;
             eventTimer.Stop();

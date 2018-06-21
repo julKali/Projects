@@ -23,7 +23,7 @@ namespace AzilorQuest
             {
                 Instructions inst = new Instructions();
                 inst.ShowDialog();
-                this.Close();
+                this.Close(); // "this" is redundant, see Instructions.cs file
             }
         }
     }

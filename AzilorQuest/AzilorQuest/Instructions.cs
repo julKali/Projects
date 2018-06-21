@@ -21,7 +21,7 @@ namespace AzilorQuest
         {
             if(e.KeyCode == Keys.Enter)
             {
-                this.Close();
+                this.Close(); //"this" keyword is redundant, you can just call Close();
             }
         }
     }

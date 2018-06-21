@@ -291,6 +291,7 @@
     <None Include="fightOnBtn.png" />
     <None Include="IntroductionBackground.png" />
     <None Include="InstructionBackground.png" />
+    <Content Include="Advice.txt" />
     <Content Include="MapData1.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

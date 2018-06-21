@@ -74,7 +74,7 @@ namespace AzilorQuest
             //    world.Add(tile);
             //}
 
-            //NEW GAME INVENTORY POPULATION
+            //NEW GAME INVENTORY POPULATION // seperate function
             createItem("PotionSmall");
             createItem("PotionSmall");
             createItem("Bandage");
@@ -96,7 +96,7 @@ namespace AzilorQuest
             Look();
 
             //LOAD INTRO
-            Welcome welcome = new Welcome();
+            Welcome welcome = new Welcome(); //better: welcomeForm Ppl need to know it's a form!
             welcome.ShowDialog();
         }
 
@@ -110,7 +110,7 @@ namespace AzilorQuest
 
         private void westBtn_Click_1(object sender, EventArgs e)
         {
-            if (hero.Facing == "North")
+            if (hero.Facing == "North") // use a switch statement!
             {
                 move("West");
             }
@@ -125,7 +125,7 @@ namespace AzilorQuest
             else if (hero.Facing == "West")
             {
                 move("North");
-            }
+            }   
         }
 
         private void southBtn_Click(object sender, EventArgs e)
@@ -237,6 +237,10 @@ namespace AzilorQuest
             userDisplay.AppendText(Environment.NewLine);
             userDisplay.AppendText("  Status:     " + hero.StatusEff);
             userDisplay.AppendText(Environment.NewLine);
+
+            userDisplay.AppendText(
+                $"STATUS:   \nLevel:    {hero.Level}\nMax HP:   {hero.MaxHP}..."
+                );
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -313,13 +317,13 @@ namespace AzilorQuest
         }
 
         //DEBUG INSTANT LEVEL UP BUTTON
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) 
         {
             hero.levelUp();
         }
 
         //CUSTOM METHODS
-        private void move(string direction)
+        private void move(string direction) //naming conventions: Move
         {
             switch (direction)
             {
